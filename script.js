@@ -5,7 +5,7 @@ const product = {
   "brand": "nokia",
   "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
   "price": 100,
-
+asd
 }
 window.onload = async () => {
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
