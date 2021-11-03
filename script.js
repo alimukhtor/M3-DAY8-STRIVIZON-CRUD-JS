@@ -21,7 +21,7 @@ window.onload = async () => {
       console.log(data);
       const getul = document.querySelector("tbody")
       data.forEach(item => {
-        getul.innerHTML =
+        getul.innerHTML +=
           `
           <tr>
             <th scope="row">${item.name}</th>
