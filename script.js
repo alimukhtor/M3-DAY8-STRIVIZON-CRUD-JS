@@ -5,7 +5,7 @@ const product = {
   "brand": "nokia",
   "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
   "price": 100,
-asd
+
 }
 window.onload = async () => {
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
@@ -19,15 +19,20 @@ window.onload = async () => {
     if(response.ok){
       const data = await response.json()
       console.log(data);
-      const getul = document.querySelector(".list-group")
+      const getul = document.querySelector("tbody")
       data.forEach(item => {
         getul.innerHTML =
-        `<li class="list-group-item">${item.name}</li>
-        <li class="list-group-item">${item.description}</li>
-        <li class="list-group-item">${item.brand}</li>
-        <li class="list-group-item">${item.price}</li>
+          `
+          <tr>
+            <th scope="row">${item.name}</th>
+            <td>${item.description}</td>
+            <td>${item.brand}</td>
+            <td>${item.price}$</td>
+          </tr>
 
         `
+
+
       })
 
     }else{
