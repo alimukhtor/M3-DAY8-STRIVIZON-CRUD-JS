@@ -11,7 +11,6 @@ window.onload = async () => {
   //
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
       method:"GET",
-      // body: JSON.stringify(product),
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzU5NDQ3MDIsImV4cCI6MTYzNzE1NDMwMn0.Fcv6mw_bw-ii1EPsZggnLy0HeFjRBc1ToZFVkAJKVzg"
@@ -28,6 +27,7 @@ window.onload = async () => {
             <th scope="row">${item.name}</th>
             <td>${item.description}</td>
             <td>${item.brand}</td>
+            <td>${item.imageUrl}</td>
             <td>${item.price}$</td>
           </tr>
 
@@ -44,9 +44,3 @@ window.onload = async () => {
 
 
 }
-
-
-
-// window.onload =() => {
-//   readApiHere()
-// }
