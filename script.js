@@ -8,6 +8,7 @@ const product = {
 
 }
 window.onload = async () => {
+  //
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
       method:"GET",
       // body: JSON.stringify(product),
