@@ -9,15 +9,31 @@ const product = {
 }
 window.onload = async () => {
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
-      method:"POST",
-      body: JSON.stringify(product),
+      method:"GET",
+      // body: JSON.stringify(product),
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzU5NDQ3MDIsImV4cCI6MTYzNzE1NDMwMn0.Fcv6mw_bw-ii1EPsZggnLy0HeFjRBc1ToZFVkAJKVzg"
       }
     })
-      const body = await response.json()
-      console.log(body);
+    if(response.ok){
+      const data = await response.json()
+      console.log(data);
+      const getul = document.querySelector(".list-group")
+      data.forEach(item => {
+        getul.innerHTML =
+        `<li class="list-group-item">${item.name}</li>
+        <li class="list-group-item">${item.description}</li>
+        <li class="list-group-item">${item.brand}</li>
+        <li class="list-group-item">${item.price}</li>
+
+        `
+      })
+
+    }else{
+      throw new Error("fetch is not defined!")
+    }
+
 
 
 
