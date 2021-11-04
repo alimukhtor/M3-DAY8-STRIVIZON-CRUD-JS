@@ -119,32 +119,7 @@
 
     }
 
-    const handleEdit = async()=> {
-      alert("edited")
-      const productDetails = {
-        const {name, brand, description, imageUrl, price} =
-
-        name: document.getElementById("name").value,
-        description: document.getElementById("description").value,
-        brand: document.getElementById("brand").value,
-        price: document.getElementById("price").value,
-        imageUrl: document.getElementById("basic-url").value,
-      }
-
-
-        const res = await fetch("https://striveschool-api.herokuapp.com/api/product/61829572aacaa2001552a1a7",{
-          method: 'PUT',
-          body: JSON.stringify(productDetails),
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzU5NDQ3MDIsImV4cCI6MTYzNzE1NDMwMn0.Fcv6mw_bw-ii1EPsZggnLy0HeFjRBc1ToZFVkAJKVzg"
-          }
-        })
-        const body = await res.json()
-        console.log(body);
-
-    }
-
+    
   </script>
 
 

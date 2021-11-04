@@ -45,9 +45,16 @@
     </nav>
     <div class="container">
       <div class="row justify-content-center">
-        <h3>Change Details</h3>
-        <div class="phone-items col-md-6">
-
+        <div class="col-md-10 col-lg-8">
+          <h3>View Details</h3>
+          <div class="mt-5 product-details">
+            <h2>Product name:</h2>
+            <h3>Brand:</h3>
+            <p>description:</p>
+            <img src="" alt="">
+            <p>Price:</p>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="handleEdit()">Edit Product</button>
         </div>
       </div>
     </div>
@@ -60,9 +67,38 @@
 
 
     <script>
-      const productID = new URLSearchParams(window.location.search).get("eventId")
-      console.log(productID);
+      const productId = new URLSearchParams(window.location.search).get("productId")
+      console.log(productId);
+      window.onload = async()=> {
+          const response = await fetch("https://striveschool-api.herokuapp.com/api/product/" + productId,{
+            method:"GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzU5NDQ3MDIsImV4cCI6MTYzNzE1NDMwMn0.Fcv6mw_bw-ii1EPsZggnLy0HeFjRBc1ToZFVkAJKVzg"
+            }
 
+          })
+          const productData = await response.json()
+          const {name, brand, description, imageUrl, price} = productData
+          const container = document.querySelector(".product-details")
+          container.innerHTML = `
+          <h2>Name: ${name}</h2>
+          <h3>Brand: ${brand}</h3>
+          <p>Description: ${description}</p>
+          <img src="${imageUrl}" alt="">
+          <p>Price: ${price}$</p>
+
+
+
+
+          `
+
+      }
+
+
+      const handleEdit =()=> {
+        window.location.assign("./backoffice.html?productId=" + productId)
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
