@@ -83,7 +83,7 @@
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Create</button>
-              <button type="button" class="btn btn-primary" onclick="handleEdit()">Edit Product</button>
+              <button type="button" class="btn btn-primary">Edit Product</button>
             </div>
           </div>
         </div>
@@ -94,14 +94,14 @@
 
 
   <script>
-    const productId = new URLSearchParams(window.location.search).get("productId")
-    window.onload =()=> {
-      if(productId){
-        document.querySelector(".page-title").innerHTML = "Edit the Product"
-      }else{
-          document.querySelector(".page-title").innerHTML = "Create a Product"
-      }
-    }
+    // const productId = new URLSearchParams(window.location.search).get("productId")
+    // window.onload =()=> {
+    //   if(productId){
+    //     document.querySelector(".page-title").innerHTML = "Edit the Product"
+    //   }else{
+    //       document.querySelector(".page-title").innerHTML = "Create a Product"
+    //   }
+    // }
 
     const handleSave = async (event) => {
       event.preventDefault()
