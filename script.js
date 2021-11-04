@@ -8,7 +8,6 @@ const product = {
 
 }
 window.onload = async () => {
-  //
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
       method:"GET",
       headers: {
@@ -30,6 +29,7 @@ window.onload = async () => {
             <p class="card-text">${item.description}</p>
             <h5 class="card-title">${item.brand}</h5>
             <p class="card-text">${item.price}$</p>
+            <a href="details.html?eventId=${item._id}">View Details</a>
           </div>
           </div>
         `
