@@ -19,18 +19,19 @@ window.onload = async () => {
     if(response.ok){
       const data = await response.json()
       console.log(data);
-      const getul = document.querySelector("tbody")
+      const getCard = document.querySelector(".row")
       data.forEach(item => {
-        getul.innerHTML +=
+        getCard.innerHTML +=
           `
-          <tr>
-            <th scope="row">${item.name}</th>
-            <td>${item.description}</td>
-            <td>${item.brand}</td>
-            <td>${item.imageUrl}</td>
-            <td>${item.price}$</td>
-          </tr>
-
+          <div class="card">
+          <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">${item.description}</p>
+            <h5 class="card-title">${item.brand}</h5>
+            <p class="card-text">${item.price}$</p>
+          </div>
+          </div>
         `
 
 
