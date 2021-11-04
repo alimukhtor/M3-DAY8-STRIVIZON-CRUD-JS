@@ -19,7 +19,7 @@ window.onload = async () => {
     if(response.ok){
       const data = await response.json()
       console.log(data);
-      const getCard = document.querySelector(".ali")
+      const getCard = document.querySelector(".phone-items")
       data.forEach(item => {
         getCard.innerHTML +=
           `
