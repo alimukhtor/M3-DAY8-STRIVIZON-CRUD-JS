@@ -93,7 +93,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Create</button>
-          <button type="button" class="btn btn-primary" >Edit Product</button>
+          <button type="button" class="btn btn-success" onclick="handleSave()">Save changes</button>
         </div>
       </div>
     </div>
@@ -138,7 +138,17 @@
           document.getElementById("basic-url").value = imageUrl
       }
 
+    const handleSave = async()=> {
+      const id = new URLSearchParams(window.location.search).get("productId")
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/product/" + id,{
+        method:"PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzU5NDQ3MDIsImV4cCI6MTYzNzE1NDMwMn0.Fcv6mw_bw-ii1EPsZggnLy0HeFjRBc1ToZFVkAJKVzg"
+        }
 
+      })
+    }
 
     </script>
 
