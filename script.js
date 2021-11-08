@@ -22,7 +22,7 @@ window.onload = async () => {
       data.forEach(item => {
         getCard.innerHTML +=
           `
-          <div class="col-12 col-md-4 col-lg-3 my-3 mx-3">
+          <div class="col-12 col-md-3 col-lg-3 my-3 mx-3">
           <div class="card">
           <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
           <div class="card-body">
