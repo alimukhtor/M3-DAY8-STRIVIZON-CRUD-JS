@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <title>StriviZon</title>
+    <title>Detail Page</title>
   </head>
   <style media="screen">
     body{
@@ -110,7 +110,7 @@
 
       window.onload = async()=> {
         const id = new URLSearchParams(window.location.search).get("productId")
-        console.log(id);
+        console.log("id:", id);
           const response = await fetch("https://striveschool-api.herokuapp.com/api/product/" + id,{
             method:"GET",
             headers: {
@@ -148,6 +148,9 @@
         }
 
       })
+      const datas = await response.json()
+      console.log(datas);
+      
     }
 
     </script>
