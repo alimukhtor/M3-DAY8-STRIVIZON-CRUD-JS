@@ -18,10 +18,11 @@ window.onload = async () => {
     if(response.ok){
       const data = await response.json()
       console.log(data);
-      const getCard = document.querySelector(".phone-items")
+      const getCard = document.querySelector(".row")
       data.forEach(item => {
         getCard.innerHTML +=
           `
+          <div class="col-12 col-md-4 col-lg-3 my-3 mx-3">
           <div class="card">
           <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
           <div class="card-body">
@@ -30,6 +31,7 @@ window.onload = async () => {
             <h5 class="card-title">${item.brand}</h5>
             <p class="card-text">${item.price}$</p>
             <a href="./details.html?productId=${item._id}">Details</a>
+          </div>
           </div>
           </div>
         `
